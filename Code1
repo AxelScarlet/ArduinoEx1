@@ -1,0 +1,28 @@
+int red = 9;
+int green = 10;
+int blue = 11;
+int yellow = 12;
+
+void setup() {
+  pinMode(red, OUTPUT);
+  pinMode(green, OUTPUT);
+  pinMode(blue, OUTPUT);
+  pinMode(yellow, OUTPUT);
+}
+
+void loop() {
+  analogWrite(red, 0);
+  delay(1000);
+  analogWrite(red, 10);
+  delay(1000);
+  analogWrite(red, 20);
+  delay(1000);
+  analogWrite(red, 30);
+  delay(1000);
+  analogWrite(green, 10);
+  delay(1000);
+  analogWrite(green, 20);
+  delay(1000);
+  analogWrite(green, 30);
+  // No additional code in the loop
+}
