@@ -1,0 +1,38 @@
+// Pin for the speaker
+int speakerPin = 7;
+
+// Melody notes and durations
+int melody[] = {
+  NOTE_E4, NOTE_E4, NOTE_F4, NOTE_G4, NOTE_G4, NOTE_F4, NOTE_E4, NOTE_D4,
+  NOTE_C4, NOTE_C4, NOTE_D4, NOTE_E4, NOTE_E4, NOTE_D4, NOTE_D4,
+  NOTE_E4, NOTE_E4, NOTE_F4, NOTE_G4, NOTE_G4, NOTE_F4, NOTE_E4, NOTE_D4,
+  NOTE_C4, NOTE_C4, NOTE_D4, NOTE_E4, NOTE_D4, NOTE_C4
+};
+
+int noteDurations[] = {
+  4, 4, 4, 4, 4, 4, 2, 4,
+  4, 4, 4, 4, 4, 2, 4,
+  4, 4, 4, 4, 4, 4, 2, 4,
+  4, 4, 4, 4, 2, 4
+};
+
+// Number of notes in the melody
+int numNotes = sizeof(melody) / sizeof(melody[0]);
+
+void setup() {
+  // Set the speaker pin as OUTPUT
+  pinMode(speakerPin, OUTPUT);
+}
+
+void loop() {
+  // Play the melody
+  for (int i = 0; i < numNotes; i++) {
+    int noteDuration = 1000 / noteDurations[i];
+    tone(speakerPin, melody[i], noteDuration);
+    delay(noteDuration * 1.3); // Add a slight pause between notes
+    noTone(speakerPin);
+  }
+
+  // Wait before repeating the melody
+  delay(2000);
+}
